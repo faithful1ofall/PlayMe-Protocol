@@ -7,7 +7,7 @@ import './App.css';
 import { Link } from "react-router-dom";
 import Player from "./components/AudioPlayer";
 import { Layout } from "antd";
-import Spotify from "./images/Spotify.png";
+import PlayMe from "./images/PlayMe.png";
 import { SearchOutlined, DownCircleOutlined } from "@ant-design/icons";
 
 const { Content, Sider, Footer } = Layout;
@@ -20,7 +20,7 @@ const App = () => {
       <Layout>
         <Layout>
           <Sider width={300} className="sideBar">
-            <img src={Spotify} alt="Logo" className="logo"></img>
+            <img src={PlayMe} alt="Logo" className="logo"></img>
             <div className="searchBar">
               <span> Search </span>
               <SearchOutlined style={{ fontSize: "30px" }} />
