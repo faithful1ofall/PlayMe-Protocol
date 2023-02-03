@@ -3,9 +3,22 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import { Tabs } from "antd";
 import { library } from "../helpers/albumList";
-
+import IPFS from "ipfs-mini";
 const { TabPane } = Tabs;
 
+
+const ipfs = new IPFS({ host: "ipfs.infura.io", port: 5001, protocol: "https" });
+
+const Home = () => {
+  const [audio, setAudio] = useState(null);
+
+  const handleUpload = async (e) => {
+    const file = e.target.files[0];
+    const buffer = await new Response(file).arrayBuffer();
+    const audioHash = await ipfs.add(Buffer.from(buffer));
+    setAudio(audioHash);
+  };
+  
 const Home = () => {
   return (
     <>
